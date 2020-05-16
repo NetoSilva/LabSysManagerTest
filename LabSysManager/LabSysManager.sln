@@ -13,17 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Service
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{E6753F1D-BD2C-46C0-AE0E-5621D619B012}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{241DADA6-4492-409B-8868-4CA848B49B22}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{7FDD0B9F-74DE-4105-AF24-2C1E443515D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabSysManager_Infra", "LabSysManager_Infra\LabSysManager_Infra.csproj", "{06A5EEA9-242C-4E9C-8DC2-9F43732BB967}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabSysManager_Infra", "LabSysManager_Infra\LabSysManager_Infra.csproj", "{06A5EEA9-242C-4E9C-8DC2-9F43732BB967}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabSysManager_Domain_Core", "LabSysManager_Domain_Core\LabSysManager_Domain_Core.csproj", "{6C32B0EE-F278-4658-A502-9EE10B339C7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabSysManager_Domain_Core", "LabSysManager_Domain_Core\LabSysManager_Domain_Core.csproj", "{6C32B0EE-F278-4658-A502-9EE10B339C7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabSysManager_Domain", "LabSysManager_Domain\LabSysManager_Domain.csproj", "{81A4E56F-FCD8-423F-8D39-5B6B72A9B64E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabSysManager_Domain", "LabSysManager_Domain\LabSysManager_Domain.csproj", "{81A4E56F-FCD8-423F-8D39-5B6B72A9B64E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabSysManager_API", "LabSysManager_API\LabSysManager_API.csproj", "{86C85471-ADEE-4440-8F5C-0E97A2B4E2A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabSysManager_API", "LabSysManager_API\LabSysManager_API.csproj", "{86C85471-ADEE-4440-8F5C-0E97A2B4E2A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

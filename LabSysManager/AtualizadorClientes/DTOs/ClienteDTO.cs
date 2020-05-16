@@ -1,7 +1,6 @@
 ﻿using LabSysManager_Domain.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System;
 
 namespace AtualizadorClientes.DTOs
 {

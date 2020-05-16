@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using LabSysManager_Domain_Core.Models;
 using System;
+using System.ComponentModel;
 using System.Runtime.Serialization;
 
 namespace LabSysManager_Domain.Models
@@ -43,9 +44,9 @@ namespace LabSysManager_Domain.Models
 
         public long Peso { get; private set; }
 
-        public ClienteTipoSanguineo TipoSanguineo { get; set; }
+        public string TipoSanguineo { get; set; }
 
-        public ClienteCor Cor { get; set; }
+        public string Cor { get; set; }
 
         public Cliente(
             string nome,
@@ -66,8 +67,8 @@ namespace LabSysManager_Domain.Models
             string celular,
             string altura,
             long peso,
-            ClienteTipoSanguineo tipoSanguineo,
-            ClienteCor cor
+            string tipoSanguineo,
+            string cor
             )
         {
             Id = Guid.NewGuid();
@@ -124,20 +125,28 @@ namespace LabSysManager_Domain.Models
 
         public enum ClienteTipoSanguineo
         {
+            [Description("A+")]
             [EnumMember(Value = "A+")]
             APositivo,
+            [Description("A-")]
             [EnumMember(Value = "A-")]
             ANegativo,
+            [Description("B+")]
             [EnumMember(Value = "B+")]
             BPositivo,
+            [Description("B-")]
             [EnumMember(Value = "B-")]
             BNegativo,
+            [Description("AB+")]
             [EnumMember(Value = "AB+")]
             ABPositivo,
+            [Description("AB-")]
             [EnumMember(Value = "AB-")]
             ABNegativo,
+            [Description("O+")]
             [EnumMember(Value = "O+")]
             OPositivo,
+            [Description("O-")]
             [EnumMember(Value = "O-")]
             ONegativo
         };
