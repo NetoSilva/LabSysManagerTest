@@ -1,19 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using LabSysManager_Infra.Context;
 using LabSysManager_Services.AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace LabSysManager_Services
 {
@@ -29,7 +22,7 @@ namespace LabSysManager_Services
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Auto Mapper Configurations
+            #region Auto Mapper Configurations
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new DomainToViewModelMappingProfile());
@@ -37,8 +30,9 @@ namespace LabSysManager_Services
 
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
+            #endregion
 
-            services.AddDbContext<LabSysManagerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LabSysManager"))); ;
+            services.AddDbContext<LabSysManagerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LabSysManager")));
             services.AddControllers();
         }
 
