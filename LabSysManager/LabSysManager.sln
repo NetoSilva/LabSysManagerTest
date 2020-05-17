@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabSysManager_Domain_Core",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabSysManager_Domain", "LabSysManager_Domain\LabSysManager_Domain.csproj", "{81A4E56F-FCD8-423F-8D39-5B6B72A9B64E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabSysManager_Services", "LabSysManager_Services\LabSysManager_Services.csproj", "{D47AB37E-3FE7-44D0-A170-C53C84DF9FAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabSysManager_Services", "LabSysManager_Services\LabSysManager_Services.csproj", "{D47AB37E-3FE7-44D0-A170-C53C84DF9FAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

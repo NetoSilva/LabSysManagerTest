@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LabSysManager_Services</name>
+    </assembly>
+    <members>
+        <member name="T:LabSysManager_Services.Controllers.ClientesController">
+            <summary>
+            API para exibição dos dados dos Clientes LabSysmanager
+            </summary>
+        </member>
+        <member name="M:LabSysManager_Services.Controllers.ClientesController.#ctor(LabSysManager_Infra.Context.LabSysManagerContext,AutoMapper.IMapper)">
+            <summary>
+            Construtor
+            </summary>
+        </member>
+        <member name="M:LabSysManager_Services.Controllers.ClientesController.ObterTodosPorIdade(System.Int64)">
+            <summary>
+            Action para obter todos os clientes por idade.
+            </summary>
+            <param name="idade">Idade dos clientes</param>
+        </member>
+        <member name="M:LabSysManager_Services.Controllers.ClientesController.ObterTodosPorEstado(System.String)">
+            <summary>
+            Action para obter todos os clientes por estado.
+            </summary>
+            <param name="estado">UF dos clientes</param>
+        </member>
+        <member name="M:LabSysManager_Services.Controllers.ClientesController.ObterTodosPorCidade(System.String)">
+            <summary>
+            Action para obter todos os clientes por cidade..
+            </summary>
+            <param name="cidade">Cidade dos clientes</param>
+        </member>
+        <member name="M:LabSysManager_Services.Controllers.ClientesController.ObterPesoMedioPorEstado(System.String)">
+            <summary>
+            Action para obter peso médio de todos os clientes por estado.
+            </summary>
+            <param name="estado" >UF dos clientes</param>
+        </member>
+        <member name="M:LabSysManager_Services.Controllers.ClientesController.ObterPesoMedioPorIdade(System.Int64)">
+            <summary>
+            Action para obter peso médio de todos os clientes por idade.
+            </summary>
+            <param name="idade">Idade dos clientes</param>
+        </member>
+    </members>
+</doc>
