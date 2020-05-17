@@ -26,7 +26,7 @@ namespace LabSysManager_Services.Controllers
         }
 
         /// <summary>
-        /// Action para obter todos os clientes por idade.
+        /// Obtem todos os clientes por idade.
         /// </summary>
         /// <param name="idade">Idade dos clientes</param>
         [HttpGet("{idade}")]
@@ -37,10 +37,10 @@ namespace LabSysManager_Services.Controllers
         }
 
         /// <summary>
-        /// Action para obter todos os clientes por estado.
+        /// Obtem todos os clientes por estado.
         /// </summary>
         /// <param name="estado">UF dos clientes</param>
-     
+
         [HttpGet("{estado}")]
         public async Task<ActionResult<List<ClienteViewModel>>> ObterTodosPorEstado(string estado)
         {
@@ -49,7 +49,7 @@ namespace LabSysManager_Services.Controllers
         }
 
         /// <summary>
-        /// Action para obter todos os clientes por cidade..
+        /// Obtem todos os clientes por cidade..
         /// </summary>
         /// <param name="cidade">Cidade dos clientes</param>
 
@@ -61,7 +61,7 @@ namespace LabSysManager_Services.Controllers
         }
 
         /// <summary>
-        /// Action para obter peso médio de todos os clientes por estado.
+        /// Obtem peso médio de todos os clientes por estado.
         /// </summary>
         /// <param name="estado" >UF dos clientes</param>
 
@@ -73,7 +73,7 @@ namespace LabSysManager_Services.Controllers
         }
 
         /// <summary>
-        /// Action para obter peso médio de todos os clientes por idade.
+        /// Obtem peso médio de todos os clientes por idade.
         /// </summary>
         /// <param name="idade">Idade dos clientes</param>
 
