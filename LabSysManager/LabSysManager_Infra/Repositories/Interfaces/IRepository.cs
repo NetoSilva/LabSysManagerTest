@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace LabSysManager_Infra.Repositories.Interfaces
 {
-    interface IRepository<T> where T : Entity<T>
+    public interface IRepository<T> where T : Entity<T>
     {
         Task Create(T entity);
         Task<IEnumerable<T>> ReadAll();

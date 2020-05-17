@@ -38,7 +38,6 @@ namespace LabSysManager_Infra.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cor")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cpf")
@@ -84,38 +83,11 @@ namespace LabSysManager_Infra.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TipoSanguineo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Cliente");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("b9feed95-8b58-4a13-8873-226499232776"),
-                            Altura = "1,73",
-                            Celular = "(34) 99963-1139",
-                            Cep = "38183-044",
-                            Cidade = "Araxá",
-                            Cor = "Vermelho",
-                            Cpf = "837.218.376-73",
-                            DataNasc = new DateTime(2001, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "levijuanhenriquedarosa_@cmfcequipamentos.com.br",
-                            Estado = "MG",
-                            Idade = 18L,
-                            Mae = "Giovanna Bianca Cristiane",
-                            Nome = "Levi Juan Henrique da Rosa",
-                            Numero = 715L,
-                            Pai = "Hugo Antonio Roberto da Rosa",
-                            Peso = 78L,
-                            Rg = "33.171.161-8",
-                            Senha = "jqAYDrlOk5",
-                            Signo = "Peixes",
-                            TelefoneFixo = "(34) 3670-2306",
-                            TipoSanguineo = "ANegativo"
-                        });
                 });
 #pragma warning restore 612, 618
         }

@@ -44,9 +44,9 @@ namespace LabSysManager_Domain.Models
 
         public long Peso { get; private set; }
 
-        public string TipoSanguineo { get; set; }
+        public string TipoSanguineo { get; private set; }
 
-        public string Cor { get; set; }
+        public string Cor { get; private set; }
 
         public Cliente(
             string nome,

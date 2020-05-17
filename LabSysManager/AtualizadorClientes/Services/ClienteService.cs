@@ -3,7 +3,9 @@ using AtualizadorClientes.ExtensionMethods;
 using AtualizadorClientes.Services.Interfaces;
 using LabSysManager_Domain.Models;
 using LabSysManager_Infra.Repositories;
+using LabSysManager_Infra.Repositories.Interfaces;
 using LabSysManager_Infra.UoW;
+using LabSysManager_Infra.UoW.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -17,8 +19,8 @@ namespace AtualizadorClientes.Services
 {
     public class ClienteService : IClienteService
     {
-        private ClienteRepository clienteRepository;
-        private UnitOfWork unitOfWork;
+        private IRepository<Cliente> clienteRepository;
+        private IUnitOfWork unitOfWork;
 
         public ClienteService(DbContext dbContext)
         {
@@ -95,7 +97,7 @@ namespace AtualizadorClientes.Services
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            unitOfWork.Dispose();
         }
     }
 }
