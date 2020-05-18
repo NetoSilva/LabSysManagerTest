@@ -21,6 +21,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabSysManager_Domain", "Lab
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabSysManager_Services", "LabSysManager_Services\LabSysManager_Services.csproj", "{D47AB37E-3FE7-44D0-A170-C53C84DF9FAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtualizadorClientes_Tests", "AtualizadorClientes_Tests\AtualizadorClientes_Tests.csproj", "{FFA7F277-72CE-465E-A635-09957ECCF61E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabSysManager_Services_Tests", "LabSysManager_Services_Tests\LabSysManager_Services_Tests.csproj", "{21F026A9-68C5-4798-AAC3-10E3C9B7403E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,14 @@ Global
 		{D47AB37E-3FE7-44D0-A170-C53C84DF9FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D47AB37E-3FE7-44D0-A170-C53C84DF9FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D47AB37E-3FE7-44D0-A170-C53C84DF9FAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA7F277-72CE-465E-A635-09957ECCF61E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA7F277-72CE-465E-A635-09957ECCF61E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA7F277-72CE-465E-A635-09957ECCF61E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA7F277-72CE-465E-A635-09957ECCF61E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21F026A9-68C5-4798-AAC3-10E3C9B7403E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21F026A9-68C5-4798-AAC3-10E3C9B7403E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21F026A9-68C5-4798-AAC3-10E3C9B7403E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21F026A9-68C5-4798-AAC3-10E3C9B7403E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +69,8 @@ Global
 		{6C32B0EE-F278-4658-A502-9EE10B339C7E} = {7FDD0B9F-74DE-4105-AF24-2C1E443515D0}
 		{81A4E56F-FCD8-423F-8D39-5B6B72A9B64E} = {7FDD0B9F-74DE-4105-AF24-2C1E443515D0}
 		{D47AB37E-3FE7-44D0-A170-C53C84DF9FAC} = {B23A4973-EA25-4DA8-BFBC-2BD80AE3ADCB}
+		{FFA7F277-72CE-465E-A635-09957ECCF61E} = {764E7067-F4CC-4F44-B308-CDA11E0798AB}
+		{21F026A9-68C5-4798-AAC3-10E3C9B7403E} = {B23A4973-EA25-4DA8-BFBC-2BD80AE3ADCB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8B2ED50A-A516-4D3E-AD11-692273D767A1}

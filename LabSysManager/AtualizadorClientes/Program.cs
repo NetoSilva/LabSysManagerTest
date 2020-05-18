@@ -15,14 +15,15 @@ namespace AtualizadorClientes
     {
         private static DbContext dbContext;
         private static IConfigurationRoot config;
-        static void Main(string[] args)
+        static void Main()
         {
             Configure();
             var path = config.GetSection("ClientesJsonPath").GetSection("Path").Value;
 
             var clienteRepository = new ClienteRepository(dbContext);
             var unitOfWork = new UnitOfWork(dbContext);
-            var clienteService = new ClienteService(dbContext);
+            var clienteService = new ClienteService(clienteRepository, unitOfWork);
+
             var clientes = clienteService.ObterClientesArquivoJson(path);
             clienteService.AtualizarClientes(clientes);
 

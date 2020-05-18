@@ -19,20 +19,24 @@ namespace AtualizadorClientes.Services
 {
     public class ClienteService : IClienteService
     {
-        private IRepository<Cliente> clienteRepository;
-        private IUnitOfWork unitOfWork;
+        private readonly IRepository<Cliente> ClienteRepository;
+        private readonly IUnitOfWork UnitOfWork;
 
-        public ClienteService(DbContext dbContext)
+        public ClienteService(IRepository<Cliente> clienteRepository, IUnitOfWork unitOfWork)
         {
-            clienteRepository = new ClienteRepository(dbContext);
-            unitOfWork = new UnitOfWork(dbContext);
+            ClienteRepository = clienteRepository;
+            UnitOfWork = unitOfWork;
         }
+
         public void AtualizarArquivoJsonClientes(List<ClienteDTO> clientes, string path)
         {
             using (StreamWriter w = new StreamWriter(path))
             {
-                var clientesSerialized = JsonConvert.SerializeObject(clientes);
-                w.Write(JValue.Parse(clientesSerialized).ToString(Formatting.Indented));
+                if (clientes.Any())
+                {
+                    var clientesSerialized = JsonConvert.SerializeObject(clientes);
+                    w.Write(JValue.Parse(clientesSerialized).ToString(Formatting.Indented));
+                }
             }
         }
 
@@ -52,8 +56,8 @@ namespace AtualizadorClientes.Services
                 foreach (var cliente in clientes)
                 {
                     Console.WriteLine($"Atualizando cliente: {cliente.Nome}");
-                    cliente.Cidade = await new EnderecoService().ObterCidadePorCep(cliente.CEP);
-                    cliente.Estado = await new EnderecoService().ObterEstadoPorCep(cliente.CEP);
+                    cliente.Cidade = await new EnderecoService().ObterCidadePorCep(cliente.Cep);
+                    cliente.Estado = await new EnderecoService().ObterEstadoPorCep(cliente.Cep);
                 }
             });
 
@@ -62,18 +66,18 @@ namespace AtualizadorClientes.Services
 
         public async Task<int> SalvarClientes(List<ClienteDTO> clientes)
         {
-            var listaClientes = await clienteRepository.ReadAll();
+            var listaClientes = await ClienteRepository.ReadAll();
             foreach (var cliente in clientes)
             {
-                if (!listaClientes.Any(c => c.Cpf == cliente.CPF))
+                if (!listaClientes.Any(c => c.Cpf == cliente.Cpf))
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine($"Salvando cliente: {cliente.Nome}");
-                    await clienteRepository.Create(new Cliente
+                    await ClienteRepository.Create(new Cliente
                             (cliente.Nome,
                             cliente.Idade,
-                            cliente.CPF,
-                            cliente.RG,
+                            cliente.Cpf,
+                            cliente.Rg,
                             Convert.ToDateTime(cliente.DataNasc),
                             cliente.Cidade,
                             cliente.Estado,
@@ -82,7 +86,7 @@ namespace AtualizadorClientes.Services
                             cliente.Pai,
                             cliente.Email,
                             cliente.Senha,
-                            cliente.CEP,
+                            cliente.Cep,
                             cliente.Numero,
                             cliente.TelefoneFixo,
                             cliente.Celular,
@@ -92,12 +96,12 @@ namespace AtualizadorClientes.Services
                             cliente.Cor.ToString()));
                 }
             }
-            return await unitOfWork.Commit();
+            return await UnitOfWork.Commit();
         }
 
         public void Dispose()
         {
-            unitOfWork.Dispose();
+            UnitOfWork.Dispose();
         }
     }
 }

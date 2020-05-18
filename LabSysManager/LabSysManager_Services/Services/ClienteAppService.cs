@@ -16,19 +16,22 @@ namespace LabSysManager_Services.Services
 {
     public class ClienteAppService : IClienteAppService
     {
-        private IRepository<Cliente> clienteRepository;
-        private IUnitOfWork unitOfWork;
-        private IMapper Mapper;
-        public ClienteAppService(DbContext dbContext, IMapper mapper)
+        private readonly IRepository<Cliente> ClienteRepository;
+        private readonly IMapper Mapper;
+        public ClienteAppService(IRepository<Cliente> clienteRepository, IMapper mapper)
         {
-            clienteRepository = new ClienteRepository(dbContext);
-            unitOfWork = new UnitOfWork(dbContext);
+            ClienteRepository = clienteRepository;
             Mapper = mapper;
         }
 
         public async Task<long> ObterPesoMedioPorIdade(long idade)
         {
-            var clientes = (await clienteRepository.ReadAll()).Where(c => c.Idade == idade);
+            if (idade <= 0)
+            {
+                throw new System.Exception("Idade deve ser maior que 0.");
+            }
+
+            var clientes = (await ClienteRepository.ReadAll()).Where(c => c.Idade == idade);
             long pesoTotal = 0;
             clientes.ToList().ForEach(c => { pesoTotal += c.Peso; });
             var pesoMedio = pesoTotal / clientes.Count();
@@ -37,26 +40,50 @@ namespace LabSysManager_Services.Services
 
         public async Task<long> ObterPesoMedioPorEstado(string estado)
         {
-            var clientes = (await clienteRepository.ReadAll()).Where(c => c.Estado == estado);
+            if (string.IsNullOrEmpty(estado))
+            {
+                throw new System.Exception("Estado não pode estar vazio ou nulo.");
+            }
+
+            var clientes = (await ClienteRepository.ReadAll()).Where(c => c.Estado == estado);
             long pesoTotal = 0;
+            long pesoMedio = 0;
             clientes.ToList().ForEach(c => { pesoTotal += c.Peso; });
-            var pesoMedio = pesoTotal / clientes.Count();
+            if (pesoTotal > 0)
+            {
+                pesoMedio = pesoTotal / clientes.Count();
+            }
             return pesoMedio;
         }
 
         public async Task<List<ClienteViewModel>> ObterTodosPorCidade(string cidade)
         {
-            return Mapper.Map<List<ClienteViewModel>>((await clienteRepository.ReadAll()).Where(c => c.Cidade == cidade));
+            if (string.IsNullOrEmpty(cidade))
+            {
+                throw new System.Exception("Cidade não pode estar vazio ou nulo.");
+            }
+
+            return Mapper.Map<List<ClienteViewModel>>((await ClienteRepository.ReadAll()).Where(c => c.Cidade == cidade));
         }
 
         public async Task<List<ClienteViewModel>> ObterTodosPorEstado(string estado)
         {
-            return Mapper.Map<List<ClienteViewModel>>((await clienteRepository.ReadAll()).Where(c => c.Estado == estado));
+            if (string.IsNullOrEmpty(estado))
+            {
+                throw new System.Exception("Estado não pode estar vazio ou nulo.");
+            }
+
+            return Mapper.Map<List<ClienteViewModel>>((await ClienteRepository.ReadAll()).Where(c => c.Estado == estado));
         }
 
         public async Task<List<ClienteViewModel>> ObterTodosPorIdade(long idade)
         {
-            return Mapper.Map<List<ClienteViewModel>>((await clienteRepository.ReadAll()).Where(c => c.Idade == idade));
+            if (idade <= 0)
+            {
+                throw new System.Exception("Idade deve ser maior que 0.");
+            }
+
+            return Mapper.Map<List<ClienteViewModel>>((await ClienteRepository.ReadAll()).Where(c => c.Idade == idade));
         }
     }
 }

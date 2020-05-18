@@ -10,8 +10,8 @@ namespace LabSysManager_Infra.Repositories
 {
     public class Repository<T> : IRepository<T> where T : Entity<T>
     {
-        private DbContext DbContext;
-        private DbSet<T> DbSet;
+        private readonly DbContext DbContext;
+        private readonly DbSet<T> DbSet;
         public Repository(DbContext dbContext)
         {
             DbContext = dbContext;
