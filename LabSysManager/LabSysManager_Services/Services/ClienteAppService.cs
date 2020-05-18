@@ -45,7 +45,7 @@ namespace LabSysManager_Services.Services
                 throw new System.Exception("Estado não pode estar vazio ou nulo.");
             }
 
-            var clientes = (await ClienteRepository.ReadAll()).Where(c => c.Estado == estado);
+            var clientes = (await ClienteRepository.ReadAll()).Where(c => c.Estado.ToLower() == estado.ToLower());
             long pesoTotal = 0;
             long pesoMedio = 0;
             clientes.ToList().ForEach(c => { pesoTotal += c.Peso; });
@@ -63,7 +63,7 @@ namespace LabSysManager_Services.Services
                 throw new System.Exception("Cidade não pode estar vazio ou nulo.");
             }
 
-            return Mapper.Map<List<ClienteViewModel>>((await ClienteRepository.ReadAll()).Where(c => c.Cidade == cidade));
+            return Mapper.Map<List<ClienteViewModel>>((await ClienteRepository.ReadAll()).Where(c => c.Cidade.ToLower() == cidade.ToLower()));
         }
 
         public async Task<List<ClienteViewModel>> ObterTodosPorEstado(string estado)
@@ -73,7 +73,7 @@ namespace LabSysManager_Services.Services
                 throw new System.Exception("Estado não pode estar vazio ou nulo.");
             }
 
-            return Mapper.Map<List<ClienteViewModel>>((await ClienteRepository.ReadAll()).Where(c => c.Estado == estado));
+            return Mapper.Map<List<ClienteViewModel>>((await ClienteRepository.ReadAll()).Where(c => c.Estado.ToLower() == estado.ToLower()));
         }
 
         public async Task<List<ClienteViewModel>> ObterTodosPorIdade(long idade)

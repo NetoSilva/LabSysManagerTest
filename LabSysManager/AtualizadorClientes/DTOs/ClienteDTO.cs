@@ -74,7 +74,7 @@ namespace AtualizadorClientes.DTOs
              long idade,
              string cpf,
              string rg,
-             DateTime dataNasc,
+             string dataNasc,
              string cidade,
              string estado,
              string signo,
@@ -96,7 +96,7 @@ namespace AtualizadorClientes.DTOs
             Idade = idade;
             Cpf = cpf;
             Rg = rg;
-            DataNasc = dataNasc.ToString();
+            DataNasc = dataNasc;
             Cidade = cidade;
             Estado = estado;
             Signo = signo;

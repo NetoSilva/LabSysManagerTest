@@ -34,7 +34,7 @@ namespace AtualizadorClientes_Tests.UnitTests
             var clienteService = new ClienteService(clienteRepository, unitOfWork);
             var clientes = new List<ClienteDTO>
             {
-                new ClienteDTO("Levi Juan Henrique da Rosa", 18, "837.218.376-73", "33.171.161-8", new DateTime(2001, 02, 27), "Araxá", "MG", "Peixes", "Giovanna Bianca Cristiane", "Hugo Antonio Roberto da Rosa", "levijuanhenriquedarosa_@cmfcequipamentos.com.br", "jqAYDrlOk5", "38183-044", 715, "(34) 3670-2306", "(34) 99963-1139", "1,73", 78, Cliente.ClienteTipoSanguineo.ANegativo, Cliente.ClienteCor.Vermelho)
+                new ClienteDTO("Levi Juan Henrique da Rosa", 18, "837.218.376-73", "33.171.161-8","27/02/2001", "Araxá", "MG", "Peixes", "Giovanna Bianca Cristiane", "Hugo Antonio Roberto da Rosa", "levijuanhenriquedarosa_@cmfcequipamentos.com.br", "jqAYDrlOk5", "38183-044", 715, "(34) 3670-2306", "(34) 99963-1139", "1,73", 78, Cliente.ClienteTipoSanguineo.ANegativo, Cliente.ClienteCor.Vermelho)
             };
 
             var ex = Assert.Throws<ArgumentException>(() => clienteService.AtualizarArquivoJsonClientes(clientes, ""));
