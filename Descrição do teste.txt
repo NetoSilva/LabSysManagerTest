@@ -1,0 +1,47 @@
+O LabSysmanager é um laboratório que realiza exames de sangue e recentemente firmou um convênio com uma Universidade para disponibilizar dados dos seus clientes para uma pesquisa, que tem por objetivo avaliar padrões relacionados a obesidade na população.
+
+Você será o especialista em integração que ajudará o LabSysmanager a expor os dados dos seus pacientes para a Universidade. Para isso deverá obedecer aos seguintes requisitos técnicos e de negócio:
+
+A equipe técnica responsável pelo sistema de exames do laboratório se comprometeu e gerar dirariamente um arquivo json em um diretório no disco, contendo os dados dos pacientes. Como a equipe não dispõem de muito tempo para apoiar esta iniciativa, o arquivo json gerado possuirá todos os dados da tabela e você deverá garantir que os dados pessoais do paciente (nome, CPF, email, senha e telefones) NÃO serão expostos.
+
+O arquivo do sistema de exames está disponível no seguinte diretório: /opt/integracao/lab/ (para usuarios de Linux) ou c:\opt\integracao\lab (para usuarios de Windows).
+
+Os registros desse arquivo não possuem dados de endereço que são importantes para a pesquisa (cidade e estado), portanto será necessário consultar o serviço de consulta de cep dos correios (https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl) para complementar os dados dos registros, utilizando a operação consultaCEP.
+
+Considere que o volume de dados do laboratório é grande (apesar do arquivo de exemplo possuir apenas 90 registros), portanto deverá haver um processo batch diário que consulte o arquivo do sistema de exames no diretório, complemente os dados de cada registro consultando o serviço dos correios e finalmente salve em uma base de dados os registros com endereço (cidade e estado), para que essa base de dados seja utilizada pela API que fará a exposição dos dados.
+
+A base de dados que deverá ser utilizada é o servidor MySql 5.7, conforme abaixo:
+
+host: localhost
+porta: 3306
+database: LabSysmanager
+usuário: admin
+senha: sysmi2018
+
+Nenhuma tabela foi criada ainda. Fique a vontade para definir a tabela e cria-la, conforme considerar adequado.
+
+Os dados de configuração da aplicação devem ser externalizados conforme abordado no treinamento.
+
+A API que você irá desenvolver deve permitir consultas por cidade, estado e faixas de idade, sempre retornando todos os dados não pessoais (todos menos nome, CPF, email, senha e telefones). A API também deverá permitir consultar o peso médio das pessoas por faixa de idade e por estado.
+
+Toda a solução deverá ser implementada utilizando as ferramentas analisadas no treinamento. O projeto deve ser mavenizado e o minimo de testes unitários deve ser feito.
+
+A IDE de desenvolvimento é o CodeReady Developer Studio, disponivel em http://developers.redhat.com.
+
+A API deverá ser em formato Swagger. Você pode utilizar o APICurio para design da sua API.
+
+
+	Como será avaliada a aplicação que você vai apresentar?
+
+
+O processo batch e a API deverão estar implementados de acordo com a abordagem proposta pela plataforma, ou seja, aplicando seus componentes da melhor maneira possível.
+
+A API deverá estar especificada de acordo com as boas práticas de design de API.
+
+Fique a vontade para decidir a estratégia que utilizará com relação aos aspectos técnicos, mas considere que a coerência e consistência das suas decisões técnicas também serão avaliadas.
+
+
+Você terá o prazo de uma semana para implementar este desafio. Caso não consiga concluí-lo dentro do prazo apresente-nos o projeto mesmo incompleto. Data máxima para entrega do case: 23/10/2019.
+
+
+Boa sorte!
